@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Đinh nghĩa các view default vào đây -->
+
+	<definition name="adminlogin"
+		template="/WEB-INF/views/admin/layouts/adminlogin.jsp">
+	</definition>
+
+	<definition name="adminlayout"
+		template="/WEB-INF/views/admin/layouts/adminlayout.jsp">
+
+		<put-attribute name="body" value="" />
+
+	</definition>
+
+	<!-- Đinh nghĩa các view khác vào đây -->
+	<definition name="adminHome" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/home.jsp" />
+	</definition>
+
+	<!-- Hotel -->
+	<definition name="hotel" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/hotel/index.jsp" />
+	</definition>
+
+	<definition name="updateHotel" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/hotel/update.jsp" />
+	</definition>
+
+	<!-- RoomType -->
+	<definition name="roomType" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/roomType/index.jsp" />
+	</definition>
+	
+	<definition name="createRoomType" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/roomType/create.jsp" />
+	</definition>
+	
+	<definition name="updateRoomType" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/roomType/update.jsp" />
+	</definition>
+	
+		<!-- facility -->
+	<definition name="facility" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/facility/index.jsp" />
+	</definition>
+	
+	<definition name="createFacility" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/facility/create.jsp" />
+	</definition>
+	
+	<definition name="updateFacility" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/facility/update.jsp" />
+	</definition>
+	
+		<!-- policy -->
+	<definition name="policy" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/policy/index.jsp" />
+	</definition>
+	
+	<definition name="createPolicy" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/policy/create.jsp" />
+	</definition>
+	
+	<definition name="updatePolicy" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/policy/update.jsp" />
+	</definition>
+	
+	<!-- room -->
+	<definition name="room" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/room/index.jsp" />
+	</definition>
+	
+	<definition name="createRoom" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/room/create.jsp" />
+	</definition>
+	
+	<definition name="updateRoom" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/room/update.jsp" />
+	</definition>
+	
+	<definition name="detailRoom" extends="adminlayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/room/detail.jsp" />
+	</definition>
+
+</tiles-definitions>

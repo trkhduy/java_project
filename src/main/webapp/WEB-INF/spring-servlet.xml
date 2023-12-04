@@ -1,0 +1,130 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns:p="http://www.springframework.org/schema/p"
+
+	xmlns:context="http://www.springframework.org/schema/context"
+
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+
+
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+
+
+
+	<!-- chỉ ra các package chứa các lớp java được đăng ký như là các bean -->
+
+	<context:component-scan
+
+		base-package="com.example.project_spring" />
+
+	<!-- chỉ tìm kiếm các bean trong cùng context application mà nó được định 
+		nghĩa -->
+
+	<context:annotation-config />
+
+	<!-- mặc định các basic components được ủy quyền gửi request tới các controller -->
+
+	<mvc:annotation-driven />
+
+	<!-- cấu hình resoures tĩnh như css, js, images... -->
+
+	<mvc:resources mapping="/resources/**"
+
+		location="/resources/" />
+
+	<!-- tạo bean tiles cấu hình đường dẫn tệp tin xml chưa các định nghĩa về 
+		template view -->
+
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+
+		<property name="definitions">
+
+			<list>
+
+				<value>/WEB-INF/client-tiles.xml</value>
+
+				<value>/WEB-INF/admin-tiles.xml</value>
+
+			</list>
+
+		</property>
+
+		<property name="checkRefresh" value="true" />
+
+	</bean>
+
+	<!-- tạo bean viewResolver sử dụng cấu hình trong TilesView -->
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+
+
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+
+	</bean>
+
+	<!-- Tạo bean xác định dữ liệu multipart khi upload file -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+	<!-- Tạo đối tượng bean dataSource kết nối database oracle -->
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver"></property>
+
+		<property name="url"
+			value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+
+		<property name="username" value="system"></property>
+
+		<property name="password" value="123456"></property>
+
+	</bean>
+
+
+
+	<!-- Tạo đối tượng bean sessionFactory cấu hình Hibernate -->
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+
+		<property name="dataSource" ref="dataSource"></property>
+
+
+		<property name="packagesToScan"
+			value="com.example.project_spring.entity"></property>
+
+		<property name="hibernateProperties">
+
+			<props>
+
+				<prop key="hibernate.current_session_context_class">thread</prop>
+
+				<prop key="hibernate.show_sql">true</prop>
+
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</prop>
+
+			</props>
+ 
+		</property>
+
+	</bean>
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+
+		<constructor-arg name="strength" value="12"></constructor-arg>
+	</bean>
+</beans>

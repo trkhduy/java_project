@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Định nghĩa các view default -->
+
+	<definition name="homelayout"
+		template="/WEB-INF/views/client/layouts/clientlayout.jsp">
+
+		<put-attribute name="title" value="" type="string" />
+
+		<put-attribute name="footer"
+			value="/WEB-INF/views/client/layouts/footer.jsp" />
+
+		<put-attribute name="header"
+			value="/WEB-INF/views/client/layouts/header.jsp" />
+
+		<put-attribute name="body" value="" />
+
+	</definition>
+
+	<!-- Định nghĩa các view khác -->
+
+	<definition name="home" extends="homelayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/home.jsp" />
+		<put-attribute name="title" value="Home" type="string" />
+
+	</definition>
+	
+	<definition name="login" extends="homelayout">
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/login.jsp" />
+		<put-attribute name="title" value="Login" type="string" />
+	</definition>
+	
+	<definition name="register" extends="homelayout">
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/register.jsp" />
+		<put-attribute name="title" value="Register" type="string" />
+	</definition>
+
+	<definition name="about" extends="homelayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/about.jsp" />
+		<put-attribute name="title" value="About" type="string" />
+
+	</definition>
+
+	<definition name="contact" extends="homelayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/contact.jsp" />
+		<put-attribute name="title" value="Contact" type="string" />
+
+	</definition>
+	
+	<definition name="homeRoom" extends="homelayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/room.jsp" />
+		<put-attribute name="title" value="Room" type="string" />
+
+	</definition>
+	
+	<definition name="roomDetail" extends="homelayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/detail.jsp" />
+		<put-attribute name="title" value="Detail" type="string" />
+
+	</definition>
+	
+	<definition name="checkout" extends="homelayout">
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/checkout.jsp" />
+		<put-attribute name="title" value="Checkout" type="string" />
+
+	</definition>
+
+</tiles-definitions>
